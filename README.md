@@ -6,7 +6,7 @@ We clean branches from your git repository.
 
 ## How to use
 
-We provide executables for `linux/amd64` and `windows/amd64`.
+We provide executables for `linux/amd64` and `windows/amd64`. You can find then on the release page.
 
 Just run `./gitclean` inside your repository.
 
