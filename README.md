@@ -1,6 +1,6 @@
 # Git Clean
 
-We clean all other branches from your git repository.
+We clean branches from your git repository.
 
 `Be careful, it doesn't ask for any confirmation.`
 
