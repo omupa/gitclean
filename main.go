@@ -2,36 +2,16 @@ package main
 
 import (
 	"fmt"
-	"os/exec"
-	"strings"
+	"os"
+
+	tea "github.com/charmbracelet/bubbletea"
+	interative "github.com/omupa/gitclean/interative"
 )
 
 func main() {
-	cmd := exec.Command("git", "branch")
-	stdout, err := cmd.Output()
-
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-
-	branches := strings.Split(string(stdout), "\n")
-	deleteBranches(branches)
-}
-
-func deleteBranches(branches []string) {
-	for _, branch := range branches {
-
-		if strings.Contains(branch, "* ") || branch == "" {
-			continue
-		}
-
-		cmd := exec.Command("git", "branch", "-d", strings.TrimSpace(branch))
-		stdout, err := cmd.Output()
-
-		if err != nil {
-			fmt.Println(err.Error())
-		}
-
-		fmt.Print(string(stdout))
+	p := tea.NewProgram(interative.InitialModel())
+	if _, err := p.Run(); err != nil {
+		fmt.Printf("Alas, there's been an error: %v", err)
+		os.Exit(1)
 	}
 }
