@@ -10,8 +10,7 @@ We provide executables for `linux/amd64` and `windows/amd64`. You can find then 
 
 Just run `./gitclean` inside your repository.
 
-You can also add the executable to your `PATH` and you will be able to run gitclean from anywhere in
-your shell.
+You can also add the executable to your `PATH` and you will be able to run gitclean from anywhere in your shell.
 
 ## Build from source
 
