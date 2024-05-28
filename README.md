@@ -1,16 +1,16 @@
 # Git Clean
 
-We clean all other branches from your git repository.
+We clean branches from your git repository.
 
 `Be careful, it doesn't ask for any confirmation.`
 
 ## How to use
 
-We provide executables for `linux/amd64` and `windows/amd64`.
+We provide executables for `linux/amd64` and `windows/amd64`. You can find then on the release page.
 
 Just run `./gitclean` inside your repository.
 
-You can also add the executable to your `PATH` and you will be able to run gitclean from anywhere in 
+You can also add the executable to your `PATH` and you will be able to run gitclean from anywhere in
 your shell.
 
 ## Build from source
