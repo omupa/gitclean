@@ -19,6 +19,8 @@ func buildCommands() *cobra.Command {
 		Long:  "With gitclean we can exclude: branches, coming soon",
 		Args:  cobra.NoArgs,
 		Run: func(cmd *cobra.Command, args []string) {
+			operator.HasGit()
+
 			if deleteAllFlag {
 				operator.DeleteAll(forceFlag)
 				return
