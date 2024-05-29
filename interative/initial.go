@@ -9,7 +9,7 @@ import (
 )
 
 func (m model) Init() tea.Cmd {
-	return fetchBranchesCmd()
+	return nil
 }
 
 func StartInterative(force bool) {
@@ -29,7 +29,7 @@ func initialModel(force bool) model {
 	}
 
 	m := model{
-		screen:           "select-branches",
+		screen:           SelectBranches,
 		force:            force,
 		cursor:           0,
 		branches:         allBranches,

@@ -3,7 +3,7 @@ package interative
 import "fmt"
 
 func (m model) View() string {
-	if m.screen == "select-branches" {
+	if m.screen == SelectBranches {
 		return selectBranchesScreen(m)
 	}
 
@@ -11,11 +11,11 @@ func (m model) View() string {
 }
 
 func selectBranchesScreen(m model) string {
-	if len(m.branches) == 0 {
-		return "No branches can be deleted!"
+	if hasNotBranchesToDelete(m) {
+		return "No branches to delete!\n\n"
 	}
 
-	s := "Which branch you want to delete?\n\n"
+	s := "Which branch do you want to delete?\n\n"
 
 	for i, branch := range m.branches {
 

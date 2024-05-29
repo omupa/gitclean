@@ -1,10 +1,15 @@
 package interative
 
-import tea "github.com/charmbracelet/bubbletea"
+import (
+	tea "github.com/charmbracelet/bubbletea"
+)
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
-	switch msg := msg.(type) {
+	if hasNotBranchesToDelete(m) {
+		return m, tea.Quit
+	}
 
+	switch msg := msg.(type) {
 	case tea.KeyMsg:
 		switch msg.String() {
 
@@ -31,12 +36,10 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 		case "enter":
 			deleteBranchesCmd(m)
-			m.screen = "branches-deleted"
+			m.screen = BranchesDeleted
 			return m, tea.Quit
 		}
 	}
 
-	// Return the updated model to the Bubble Tea runtime for processing.
-	// Note that we're not returning a command.
 	return m, nil
 }
