@@ -14,16 +14,24 @@ After that, the executable file will be created in this same folder and it'll be
 
 ### Build for my current OS
 
-`go build .`
+```shell
+go build .
+```
 
 ### Build for Linux 64bit
 
-`GOOS=linux GOARCH=amd64 go build .`
+```shell
+GOOS=linux GOARCH=amd64 go build .
+```
 
 ### Build for Windows 64bit
 
-`GOOS=windows GOARCH=amd64 go build .`
+```shell
+GOOS=windows GOARCH=amd64 go build .
+```
 
 ## List all available OS
 
-`go tool dist list`
+```shell
+go tool dist list
+```
