@@ -20,7 +20,7 @@ func deleteBranchesCmd(m model) tea.Cmd {
 }
 
 func deleteBranch(m model, branchToBeDeleted string) {
-	err := operator.DeleteBranch(branchToBeDeleted, false)
+	err := operator.DeleteBranch(branchToBeDeleted, m.force)
 
 	if err != nil {
 		m.selectedBranches[branchToBeDeleted] = false
