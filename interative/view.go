@@ -12,7 +12,9 @@ func (m model) View() string {
 
 func selectBranchesScreen(m model) string {
 	if hasNotBranchesToDelete(m) {
-		return "No branches to delete!\n\n"
+		s := "No branches to delete!\n"
+		s += "Press Q to quit.\n"
+		return s
 	}
 
 	s := "Which branch do you want to delete?\n\n"

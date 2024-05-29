@@ -5,10 +5,6 @@ import (
 )
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
-	if hasNotBranchesToDelete(m) {
-		return m, tea.Quit
-	}
-
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
 		switch msg.String() {
@@ -39,6 +35,11 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.screen = BranchesDeleted
 			return m, tea.Quit
 		}
+
+	// This case occurs during startup and is activated by Bubbletea Init
+	case []string:
+		m = loadBranches(msg, m.force)
+		return m, nil
 	}
 
 	return m, nil
